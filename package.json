@@ -1,0 +1,27 @@
+{
+  "name": "fctv",
+  "version": "2.0.0",
+  "description": "FCTV - Desktop Streaming Player",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --publish never"
+  },
+  "build": {
+    "appId": "com.fctv.desktop",
+    "productName": "FCTV",
+    "win": {
+      "target": [{ "target": "nsis", "arch": ["x64"] }],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false
+    },
+    "files": ["main.js", "preload.js", "renderer/**", "assets/**"]
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3"
+  }
+}
